@@ -364,7 +364,7 @@ export function MobilePrototype() {
               <ChevronDown className="size-4 text-slate-400" />
             </button>
           </div>
-          <div className="flex shrink-0 items-center gap-[clamp(14px,2vw,18px)]">
+          <div className="flex shrink-0 items-center gap-[clamp(10px,2vw,18px)]">
             <button className="text-slate-700">
               <SlidersHorizontal className="size-5.5" />
             </button>
