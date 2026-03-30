@@ -320,7 +320,7 @@ export function MobilePrototype() {
         </div>
 
         <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between border-t bg-white px-3 py-2 text-sm">
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1.5">
             <button className="flex items-center gap-0.3 text-slate-700">
               <CalendarDays className="size-5" />
               <ChevronDown className="size-5 text-slate-400" />
