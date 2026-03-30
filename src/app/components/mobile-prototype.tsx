@@ -356,7 +356,7 @@ export function MobilePrototype() {
               }}
             >
               <span className="size-2 rounded-full bg-amber-400" />
-              <span>Mar 20, {formatSeekTimeShort(seekTime)}</span>
+              <span>Mar 20,{formatSeekTimeShort(seekTime)}</span>
               <ChevronDown className="size-5 text-slate-400" />
             </button>
             <button
@@ -369,10 +369,10 @@ export function MobilePrototype() {
           </div>
           <div className="flex shrink-0 items-center gap-[clamp(10px,2vw,18px)]">
             <button className="text-slate-700">
-              <SlidersHorizontal className="size-5.5" />
+              <SlidersHorizontal className="size-5" />
             </button>
             <button className="text-[#1e90e5]">
-              <Settings className="size-5.5" />
+              <Settings className="size-5" />
             </button>
           </div>
         </div>
