@@ -319,20 +319,23 @@ export function MobilePrototype() {
           ))}
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 z-10 flex items-center border-t bg-white px-3 pt-2 pb-[calc(10px+env(safe-area-inset-bottom,0px))] text-sm gap-[clamp(14px,2vw,18px)]">
+        <div className="absolute inset-x-0 bottom-0 z-10 flex items-center border-t bg-white px-3 pt-3 pb-[calc(12px+env(safe-area-inset-bottom,0px))] gap-[clamp(14px,2vw,18px)]">
           <div className="flex min-w-0 flex-1 items-center justify-between">
-            <button className="flex items-center gap-0.3 text-[17px] font-semibold text-slate-700">
-              <CalendarDays className="size-5" />
-              <ChevronDown className="size-5 text-slate-400" />
+            <button
+              type="button"
+              className="flex items-center gap-0.3 text-[17px] font-semibold text-slate-700 [&_svg]:size-[20px]"
+            >
+              <CalendarDays className="text-slate-700" />
+              <ChevronDown className="text-slate-400" />
             </button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button
                   type="button"
-                  className="flex items-center gap-0.3 text-[17px] font-semibold text-slate-700 outline-none focus-visible:ring-2 focus-visible:ring-slate-300"
+                  className="flex items-center gap-0.3 text-[17px] font-semibold text-slate-700 outline-none focus-visible:ring-2 focus-visible:ring-slate-300 [&_svg]:size-[17px]"
                 >
-                  <span className="font-medium">{symbol}</span>
-                  <ChevronDown className="size-5 text-slate-400" />
+                  <span className="text-[17px] font-semibold">{symbol}</span>
+                  <ChevronDown className="text-slate-400" />
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" side="top" sideOffset={8} className="min-w-32">
