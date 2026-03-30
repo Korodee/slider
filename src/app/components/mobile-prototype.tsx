@@ -319,8 +319,8 @@ export function MobilePrototype() {
           ))}
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between border-t bg-white px-3 py-2 text-sm">
-          <div className="flex items-center gap-1.5">
+        <div className="absolute inset-x-0 bottom-0 z-10 flex items-center border-t bg-white px-3 py-2 text-sm gap-[clamp(14px,2vw,18px)]">
+          <div className="flex min-w-0 flex-1 items-center justify-between">
             <button className="flex items-center gap-0.3 text-slate-700">
               <CalendarDays className="size-5" />
               <ChevronDown className="size-5 text-slate-400" />
@@ -346,7 +346,7 @@ export function MobilePrototype() {
               </DropdownMenuContent>
             </DropdownMenu>
             <button
-              className="flex items-center gap-1 text-slate-800"
+              className="flex items-center gap-1 text-slate-800 whitespace-nowrap"
               onClick={() => {
                 setSheet("seek");
                 setSeekPanel("collapsed");
@@ -357,14 +357,14 @@ export function MobilePrototype() {
               <ChevronDown className="size-5 text-slate-400" />
             </button>
             <button
-              className="flex items-center gap-0.3 text-slate-700"
+              className="flex items-center gap-0.3 text-slate-700 whitespace-nowrap"
               onClick={() => setSheet("units")}
             >
               <span>Exp/K</span>
               <ChevronDown className="size-4 text-slate-400" />
             </button>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-[clamp(14px,2vw,18px)]">
             <button className="text-slate-700">
               <SlidersHorizontal className="size-5.5" />
             </button>
