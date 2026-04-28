@@ -45,6 +45,11 @@ function formatSeekTimeShort(t: SeekTime): string {
   return `${t.hour12}:${String(t.minute).padStart(2, "0")}`;
 }
 
+function seekTimeTo24Hour(t: SeekTime): number {
+  const normalized = t.hour12 % 12;
+  return t.period === "PM" ? normalized + 12 : normalized;
+}
+
 const MONTH_SHORT = [
   "Jan",
   "Feb",
@@ -281,6 +286,12 @@ export function MobilePrototype() {
   });
 
   const rows = useMemo(() => Array.from({ length: 120 }), []);
+  const isHistoricSeekSelection = useMemo(() => {
+    const now = new Date();
+    const selected = new Date(now.getFullYear(), 2, 20);
+    selected.setHours(seekTimeTo24Hour(seekTime), seekTime.minute, 0, 0);
+    return selected.getTime() < now.getTime();
+  }, [seekTime]);
 
   return (
     <div className="h-dvh overflow-hidden bg-[#081a3a] text-slate-900">
@@ -349,15 +360,23 @@ export function MobilePrototype() {
               </DropdownMenuContent>
             </DropdownMenu>
             <button
-              className="flex items-center gap-1 text-[17px] font-semibold text-slate-800 whitespace-nowrap"
+              className={`flex items-center gap-1 whitespace-nowrap text-[17px] font-semibold ${
+                isHistoricSeekSelection ? "text-amber-500" : "text-slate-800"
+              }`}
               onClick={() => {
                 setSheet("seek");
                 setSeekPanel("collapsed");
               }}
             >
-              <span className="size-2 rounded-full bg-amber-400" />
+              <span
+                className={`size-2 rounded-full ${
+                  isHistoricSeekSelection ? "bg-amber-400" : "bg-slate-300"
+                }`}
+              />
               <span>Mar 20,{formatSeekTimeShort(seekTime)}</span>
-              <ChevronDown className="size-5 text-slate-400" />
+              <ChevronDown
+                className={`size-5 ${isHistoricSeekSelection ? "text-amber-400" : "text-slate-400"}`}
+              />
             </button>
             <button
               className="flex items-center gap-0.3 text-[17px] font-semibold text-slate-700 whitespace-nowrap"

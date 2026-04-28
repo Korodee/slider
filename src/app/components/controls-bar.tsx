@@ -247,6 +247,8 @@ export function ControlsBar() {
       ? dailyIndex === DAILY_INDEX_MAX
       : isLive;
   const isToday = dailyIndex === DAILY_INDEX_MAX;
+  const isHistoricIntradaySelection =
+    timeMode === "intraday" && (!isToday || selectedTime < intradayAvailableEndEffective);
 
   return (
     <div className="flex w-full justify-center px-4 pt-8">
@@ -305,7 +307,7 @@ export function ControlsBar() {
                 <>
                   <span
                     className={`text-[15px] font-medium tabular-nums ${
-                      isToday ? "text-emerald-400" : "text-amber-400"
+                      isHistoricIntradaySelection ? "text-amber-400" : "text-emerald-400"
                     }`}
                   >
                     {formatDateLabel(selectedDailyDate)}, {getTimeFromMinutes(selectedTime)}
@@ -527,7 +529,9 @@ export function ControlsBar() {
               )}
             </button>
           </TooltipTrigger>
-          <TooltipContent>Jump to latest</TooltipContent>
+          {!isLive && timeMode === "intraday" && (
+            <TooltipContent>Jump to latest</TooltipContent>
+          )}
         </Tooltip>
       </div>
     </div>
